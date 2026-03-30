@@ -11,6 +11,7 @@ const iconMap = {
 export const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Products", href: "/products/" },
+  { label: "Order Online", href: "/order-online/" },
   { label: "Quote", href: "/request-quote/" },
   { label: "Contact", href: "/contact/" }
 ];
@@ -50,6 +51,7 @@ export const renderSiteChrome = () => {
           <div class="mt-3 grid gap-2 text-sm text-sky-950/70">
             <a href="${withBase("/")}">Home</a>
             <a href="${withBase("/products/")}">Products</a>
+            <a href="${withBase("/order-online/")}">Order Online</a>
             <a href="${withBase("/request-quote/")}">Request a Quote</a>
             <a href="${withBase("/contact/")}">Contact</a>
           </div>

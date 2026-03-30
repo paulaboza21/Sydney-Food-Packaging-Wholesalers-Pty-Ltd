@@ -114,6 +114,33 @@ export const specialties = [
   "Family Service"
 ];
 
+export const orderOnlineContent = {
+  hero: {
+    heading: "Order Online for Fast B2B Reordering",
+    subheading:
+      "Browse core wholesale categories, shortlist products for your next run, and send your order request through to our team with speed.",
+    primaryCTA: {
+      label: "Start an Order",
+      href: "/request-quote/"
+    },
+    secondaryCTA: {
+      label: "Browse Products",
+      href: "/products/"
+    }
+  },
+  steps: [
+    "Choose your core product categories",
+    "Review product options and quantities",
+    "Send your order request for confirmation",
+    "Our team confirms stock, pricing, and delivery"
+  ],
+  highlights: [
+    "Built for repeat wholesale ordering",
+    "Ideal for cafes, restaurants, and takeaway shops",
+    "Fast turnaround for Greater Sydney deliveries"
+  ]
+};
+
 export const quotePageContent = {
   heading: "Request a Quote",
   subheading:
