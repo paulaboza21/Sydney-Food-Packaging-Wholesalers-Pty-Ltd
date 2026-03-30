@@ -15,42 +15,16 @@ export const navLinks = [
 export const renderSiteChrome = () => {
   const header = document.querySelector("#site-header");
   const footer = document.querySelector("#site-footer");
-  const logo = `
-    <svg viewBox="0 0 170 120" class="h-12 w-16 text-[#1f78b9]" aria-hidden="true" fill="currentColor">
-      <circle cx="22" cy="18" r="14"></circle>
-      <circle cx="54" cy="18" r="12"></circle>
-      <circle cx="82" cy="18" r="10"></circle>
-      <circle cx="108" cy="18" r="8"></circle>
-      <circle cx="132" cy="18" r="6"></circle>
-      <circle cx="152" cy="18" r="4"></circle>
-      <circle cx="22" cy="46" r="14"></circle>
-      <circle cx="52" cy="46" r="12"></circle>
-      <circle cx="78" cy="46" r="10"></circle>
-      <circle cx="102" cy="46" r="8"></circle>
-      <circle cx="122" cy="46" r="6"></circle>
-      <circle cx="142" cy="46" r="5"></circle>
-      <circle cx="22" cy="74" r="11"></circle>
-      <circle cx="50" cy="74" r="10"></circle>
-      <circle cx="74" cy="74" r="9"></circle>
-      <circle cx="96" cy="74" r="8"></circle>
-      <circle cx="116" cy="74" r="6"></circle>
-      <circle cx="136" cy="74" r="5"></circle>
-      <circle cx="22" cy="98" r="9"></circle>
-      <circle cx="46" cy="98" r="8"></circle>
-      <circle cx="68" cy="98" r="7"></circle>
-      <circle cx="22" cy="118" r="6"></circle>
-      <circle cx="44" cy="118" r="5"></circle>
-      <circle cx="66" cy="118" r="4"></circle>
-    </svg>
-  `;
 
   header.innerHTML = `
     <div class="glass-panel flex flex-col gap-4 rounded-[28px] border border-line px-5 py-4 shadow-soft md:flex-row md:items-center md:justify-between">
       <a href="/" class="flex items-center gap-4">
-        <div class="flex items-center justify-center rounded-2xl bg-white/70 px-2 py-1">${logo}</div>
+        <div class="flex items-center justify-center rounded-2xl bg-white/70 px-2 py-1">
+          <img src="/assets/logo.svg" alt="Sydney Food & Packaging Wholesalers logo" class="h-12 w-16 object-contain" />
+        </div>
         <div>
           <div class="font-display text-base font-bold">Sydney Food & Packaging</div>
-          <div class="text-sm text-black/60">Premium wholesale supply across Sydney</div>
+          <div class="text-sm text-black/60">Foodservice wholesale supply across Greater Sydney</div>
         </div>
       </a>
       <nav class="flex flex-wrap gap-5 text-sm font-semibold text-black/70">
@@ -64,7 +38,7 @@ export const renderSiteChrome = () => {
       <div class="max-w-xl">
         <h3 class="font-display text-xl font-bold">Sydney Food & Packaging Wholesalers</h3>
         <p class="mt-3 text-sm leading-7 text-black/65">
-          Reliable B2B supply for food products, packaging, warehouse-ready essentials, and scheduled delivery support across Sydney.
+          Wholesale food products, packaging, cleaning essentials, and dependable delivery support for busy Sydney venues.
         </p>
       </div>
       <div class="grid gap-6 sm:grid-cols-2">
