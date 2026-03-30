@@ -1,4 +1,4 @@
-import { homepageContent } from "./content.js";
+import { homepageContent, specialties } from "./content.js";
 import {
   buttonPrimary,
   buttonSecondary,
@@ -44,6 +44,17 @@ document.querySelector("#app").innerHTML = `
         <h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">${about.heading}</h2>
         <div class="mt-5 grid gap-4 text-base leading-8 text-black/66">
           ${about.text.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+        </div>
+        <div class="mt-6 flex flex-wrap gap-3">
+          ${specialties
+            .map(
+              (item) => `
+                <span class="rounded-full border border-black/8 bg-white/80 px-4 py-2 text-sm font-semibold text-ink">
+                  ${item}
+                </span>
+              `
+            )
+            .join("")}
         </div>
       </div>
       ${imagePlaceholder("Warehouse + Delivery", "A premium image zone for food products, packaging stock, warehouse storage, and dependable Sydney logistics.")}

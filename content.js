@@ -94,7 +94,7 @@ export const homepageContent = {
 export const businessDetails = {
   companyName: "Sydney Food & Packaging Wholesalers Pty Ltd",
   shortName: "Sydney Food & Packaging",
-  phone: "1300 000 000",
+  phone: "+61287887333",
   email: "sales@example.com",
   address: "Building H2, 1 Delec Lane, Strathfield South, NSW 2136, Australia",
   serviceArea: "Greater Sydney",
@@ -103,6 +103,16 @@ export const businessDetails = {
   quoteSuccessMessage:
     "Thanks, your quote request is ready to send. Our team will review your requirements and respond with pricing and availability."
 };
+
+export const specialties = [
+  "Biodegradable Packaging",
+  "Dairy",
+  "Frozen",
+  "Custom Branding",
+  "Dry Goods",
+  "Packaging",
+  "Family Service"
+];
 
 export const quotePageContent = {
   heading: "Request a Quote",
