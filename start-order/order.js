@@ -20,7 +20,7 @@ if (requestedProduct) {
 }
 
 document.querySelector("#app").innerHTML = `
-  <section class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+  <section class="grid gap-6 xl:grid-cols-[0.78fr_1.22fr]">
     <div class="glass-panel rounded-[34px] border border-line px-6 py-8 shadow-soft lg:px-10 lg:py-10">
       ${sectionEyebrow("Order Online")}
       <h1 class="mt-5 max-w-[12ch] font-display text-5xl font-bold leading-[0.98] sm:text-6xl">${orderPageContent.heading}</h1>
@@ -55,21 +55,32 @@ document.querySelector("#app").innerHTML = `
         </div>
 
         <div id="category-filters" class="mt-8 flex flex-wrap gap-3"></div>
-        <div id="product-picker" class="mt-8 grid gap-5 md:grid-cols-2"></div>
+
+        <div class="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
+          <div id="product-picker" class="grid gap-5 md:grid-cols-2"></div>
+
+          <aside class="xl:sticky xl:top-6">
+            <div class="rounded-[30px] border border-sky-100 bg-white/90 p-5 shadow-sm">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-[0.22em] text-clay">Your Cart</div>
+                  <h3 class="mt-2 font-display text-2xl font-bold text-sky-950">Order Summary</h3>
+                </div>
+                <div class="rounded-full border border-sky-100 bg-sky-50 px-4 py-2 text-sm font-semibold text-clay" id="order-count">
+                  0 items
+                </div>
+              </div>
+              <div id="order-summary" class="mt-5 grid gap-3"></div>
+            </div>
+          </aside>
+        </div>
       </section>
 
       <form id="order-form" class="glass-panel rounded-[34px] border border-line px-6 py-8 shadow-soft lg:px-10 lg:py-10">
-        <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            ${sectionEyebrow("Order Details")}
-            <h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">Review and submit.</h2>
-          </div>
-          <div class="rounded-full border border-sky-100 bg-sky-50 px-4 py-2 text-sm font-semibold text-clay" id="order-count">
-            0 items selected
-          </div>
+        <div>
+          ${sectionEyebrow("Order Details")}
+          <h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">Delivery and business details.</h2>
         </div>
-
-        <div id="order-summary" class="mt-8 grid gap-3"></div>
 
         <div class="mt-8 grid gap-5 md:grid-cols-2">
           <label>
@@ -140,7 +151,7 @@ const syncHiddenFields = () => {
     .map((item) => `${item.name}: ${item.quantity}`)
     .join("\n");
 
-  orderCount.textContent = `${selectedItems.length} item${selectedItems.length === 1 ? "" : "s"} selected`;
+  orderCount.textContent = `${selectedItems.length} item${selectedItems.length === 1 ? "" : "s"}`;
 };
 
 const renderCategories = () => {
@@ -230,8 +241,8 @@ const renderSummary = () => {
 
   if (!selectedItems.length) {
     orderSummary.innerHTML = `
-      <div class="rounded-[28px] border border-dashed border-sky-200 bg-sky-50/60 px-5 py-6 text-sm font-semibold text-sky-950/68">
-        No products added yet. Use the product selector above to start building the order.
+      <div class="rounded-[24px] border border-dashed border-sky-200 bg-sky-50/60 px-4 py-5 text-sm font-semibold text-sky-950/68">
+        No products added yet. Use the product selector to start building the order.
       </div>
     `;
     return;
@@ -240,19 +251,14 @@ const renderSummary = () => {
   orderSummary.innerHTML = selectedItems
     .map(
       (item) => `
-        <article class="rounded-[28px] border border-sky-100 bg-white/84 px-5 py-5 shadow-sm">
-          <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <h3 class="font-display text-2xl font-bold text-sky-950">${item.name}</h3>
-              <p class="mt-1 text-sm leading-7 text-sky-950/60">Adjust the quantity below before submitting the order request.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-3">
-              <label class="text-sm font-bold text-sky-950/70">Qty</label>
-              <input type="number" min="1" value="${item.quantity}" data-qty="${item.name}" class="qty-input w-24 rounded-2xl border border-sky-200 bg-white px-4 py-3 text-sm font-semibold outline-none" />
-              <button type="button" data-remove="${item.name}" class="remove-item inline-flex min-h-12 items-center rounded-full border border-red-200 bg-red-50 px-4 text-sm font-bold text-red-600">
-                Remove
-              </button>
-            </div>
+        <article class="rounded-[24px] border border-sky-100 bg-sky-50/45 px-4 py-4">
+          <h3 class="font-display text-xl font-bold text-sky-950">${item.name}</h3>
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+            <label class="text-sm font-bold text-sky-950/70">Qty</label>
+            <input type="number" min="1" value="${item.quantity}" data-qty="${item.name}" class="qty-input w-24 rounded-2xl border border-sky-200 bg-white px-4 py-3 text-sm font-semibold outline-none" />
+            <button type="button" data-remove="${item.name}" class="remove-item inline-flex min-h-11 items-center rounded-full border border-red-200 bg-red-50 px-4 text-sm font-bold text-red-600">
+              Remove
+            </button>
           </div>
         </article>
       `
