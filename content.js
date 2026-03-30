@@ -121,7 +121,7 @@ export const orderOnlineContent = {
       "Browse core wholesale categories, shortlist products for your next run, and send your order request through to our team with speed.",
     primaryCTA: {
       label: "Start an Order",
-      href: "/request-quote/"
+      href: "/start-order/"
     },
     secondaryCTA: {
       label: "Browse Products",
@@ -138,6 +138,29 @@ export const orderOnlineContent = {
     "Built for repeat wholesale ordering",
     "Ideal for cafes, restaurants, and takeaway shops",
     "Fast turnaround for Greater Sydney deliveries"
+  ]
+};
+
+export const orderPageContent = {
+  heading: "Start Your Order",
+  subheading:
+    "Send your product list, quantities, and delivery details to our team for fast wholesale order processing.",
+  formFields: [
+    "Name",
+    "Business Name",
+    "Email",
+    "Phone",
+    "Business Type",
+    "Products to Order",
+    "Required Quantities",
+    "Preferred Delivery Date",
+    "Delivery Address",
+    "Message"
+  ],
+  trust: [
+    "Fast order turnaround",
+    "Wholesale supply support",
+    "Delivery across Greater Sydney"
   ]
 };
 

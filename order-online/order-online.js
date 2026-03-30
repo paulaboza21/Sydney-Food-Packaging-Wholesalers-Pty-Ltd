@@ -117,7 +117,7 @@ document.querySelector("#app").innerHTML = `
                 <p class="mt-3 text-sm leading-7 text-sky-950/62">${product.description}</p>
                 <div class="mt-6 flex flex-wrap gap-3">
                   <a href="${withBase(`/products/item/?slug=${product.slug}`)}" class="inline-flex min-h-12 items-center rounded-full border border-sky-200 bg-white/80 px-5 text-sm font-bold text-sky-950">View Details</a>
-                  ${buttonPrimary("Order This Item", `/request-quote/?product=${encodeURIComponent(product.name)}`)}
+                  ${buttonPrimary("Order This Item", `/start-order/?product=${encodeURIComponent(product.name)}`)}
                 </div>
               </div>
             </article>
@@ -134,8 +134,9 @@ document.querySelector("#app").innerHTML = `
       Send through your list and our team will confirm stock, pricing, and delivery options for ${businessDetails.serviceArea}.
     </p>
     <div class="mt-8 flex flex-wrap gap-4">
-      ${buttonPrimary("Start Your Order", "/request-quote/")}
+      ${buttonPrimary("Start Your Order", "/start-order/")}
       ${buttonSecondary("Call ${businessDetails.phone}", "/contact/", true)}
     </div>
   </section>
 `;
+
