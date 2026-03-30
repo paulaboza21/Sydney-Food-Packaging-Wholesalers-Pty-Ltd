@@ -96,7 +96,7 @@ export const businessDetails = {
   shortName: "Sydney Food & Packaging",
   phone: "1300 000 000",
   email: "sales@example.com",
-  address: "Warehouse address placeholder, Sydney NSW",
+  address: "Building H2, 1 Delec Lane, Strathfield South, NSW 2136, Australia",
   serviceArea: "Greater Sydney",
   quoteEmail: "sales@example.com",
   quoteFormEndpoint: "",
