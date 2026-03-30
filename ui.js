@@ -1,4 +1,5 @@
 import { businessDetails } from "./content.js";
+import { baseAsset, withBase } from "./paths.js";
 
 const iconMap = {
   Supply: "SP",
@@ -20,9 +21,9 @@ export const renderSiteChrome = () => {
 
   header.innerHTML = `
     <div class="glass-panel flex flex-col gap-4 rounded-[28px] border border-line px-5 py-4 shadow-soft md:flex-row md:items-center md:justify-between">
-      <a href="/" class="flex items-center gap-4">
+      <a href="${withBase("/")}" class="flex items-center gap-4">
         <div class="flex items-center justify-center rounded-2xl bg-white/70 px-2 py-1">
-          <img src="/assets/logo.svg" alt="${businessDetails.companyName} logo" class="h-12 w-16 object-contain" />
+          <img src="${baseAsset("/assets/logo.svg")}" alt="${businessDetails.companyName} logo" class="h-12 w-16 object-contain" />
         </div>
         <div>
           <div class="font-display text-base font-bold">${businessDetails.shortName}</div>
@@ -30,7 +31,7 @@ export const renderSiteChrome = () => {
         </div>
       </a>
       <nav class="flex flex-wrap gap-5 text-sm font-semibold text-black/70">
-        ${navLinks.map((link) => `<a class="transition hover:text-ink" href="${link.href}">${link.label}</a>`).join("")}
+        ${navLinks.map((link) => `<a class="transition hover:text-ink" href="${withBase(link.href)}">${link.label}</a>`).join("")}
       </nav>
     </div>
   `;
@@ -47,10 +48,10 @@ export const renderSiteChrome = () => {
         <div>
           <h4 class="font-display text-sm font-bold uppercase tracking-[0.22em] text-black/55">Links</h4>
           <div class="mt-3 grid gap-2 text-sm text-black/70">
-            <a href="/">Home</a>
-            <a href="/products/">Products</a>
-            <a href="/request-quote/">Request a Quote</a>
-            <a href="/contact/">Contact</a>
+            <a href="${withBase("/")}">Home</a>
+            <a href="${withBase("/products/")}">Products</a>
+            <a href="${withBase("/request-quote/")}">Request a Quote</a>
+            <a href="${withBase("/contact/")}">Contact</a>
           </div>
         </div>
         <div>
@@ -67,10 +68,10 @@ export const renderSiteChrome = () => {
 };
 
 export const buttonPrimary = (label, href) =>
-  `<a href="${href}" class="inline-flex min-h-14 items-center justify-center rounded-full bg-gradient-to-r from-[#1f78b9] to-sky-500 px-7 text-sm font-bold text-white shadow-lg shadow-sky-200 transition hover:-translate-y-0.5">${label}</a>`;
+  `<a href="${withBase(href)}" class="inline-flex min-h-14 items-center justify-center rounded-full bg-gradient-to-r from-[#1f78b9] to-sky-500 px-7 text-sm font-bold text-white shadow-lg shadow-sky-200 transition hover:-translate-y-0.5">${label}</a>`;
 
 export const buttonSecondary = (label, href, dark = false) =>
-  `<a href="${href}" class="inline-flex min-h-14 items-center justify-center rounded-full border px-7 text-sm font-bold transition hover:-translate-y-0.5 ${dark ? "border-white/20 bg-white/10 text-white" : "border-black/10 bg-white/70 text-ink"}">${label}</a>`;
+  `<a href="${withBase(href)}" class="inline-flex min-h-14 items-center justify-center rounded-full border px-7 text-sm font-bold transition hover:-translate-y-0.5 ${dark ? "border-white/20 bg-white/10 text-white" : "border-black/10 bg-white/70 text-ink"}">${label}</a>`;
 
 export const sectionEyebrow = (text) =>
   `<span class="inline-flex w-fit rounded-full border border-black/10 bg-white/60 px-4 py-2 font-display text-xs font-bold uppercase tracking-[0.24em] text-moss">${text}</span>`;

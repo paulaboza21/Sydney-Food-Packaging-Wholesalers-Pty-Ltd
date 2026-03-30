@@ -1,4 +1,5 @@
 import { productCategories, products } from "../content.js";
+import { withBase } from "../paths.js";
 import {
   buttonPrimary,
   productImageCard,
@@ -54,7 +55,7 @@ const render = () => {
         .map(
           (product) => `
             <article class="glass-panel overflow-hidden rounded-[30px] border border-line p-4 shadow-soft">
-              <a href="/products/item/?slug=${product.slug}">
+              <a href="${withBase(`/products/item/?slug=${product.slug}`)}">
                 ${productImageCard(product.imageLabel, product.imageTheme)}
               </a>
               <div class="px-1 pb-2 pt-5">
@@ -62,7 +63,7 @@ const render = () => {
                 <h2 class="mt-3 font-display text-2xl font-bold">${product.name}</h2>
                 <p class="mt-3 text-sm leading-7 text-black/62">${product.description}</p>
                 <div class="mt-6 flex flex-wrap gap-3">
-                  <a href="/products/item/?slug=${product.slug}" class="inline-flex min-h-12 items-center rounded-full border border-black/10 bg-white/80 px-5 text-sm font-bold text-ink">View Product</a>
+                  <a href="${withBase(`/products/item/?slug=${product.slug}`)}" class="inline-flex min-h-12 items-center rounded-full border border-black/10 bg-white/80 px-5 text-sm font-bold text-ink">View Product</a>
                   ${buttonPrimary("Request Quote", `/request-quote/?product=${encodeURIComponent(product.name)}`)}
                 </div>
               </div>
@@ -78,8 +79,8 @@ const render = () => {
       activeCategory = button.dataset.category;
       const nextUrl =
         activeCategory === "All"
-          ? "/products/"
-          : `/products/?category=${encodeURIComponent(activeCategory)}`;
+          ? withBase("/products/")
+          : withBase(`/products/?category=${encodeURIComponent(activeCategory)}`);
       window.history.replaceState({}, "", nextUrl);
       render();
     });

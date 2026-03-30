@@ -1,4 +1,5 @@
 import { homepageContent, specialties } from "./content.js";
+import { withBase } from "./paths.js";
 import {
   buttonPrimary,
   buttonSecondary,
@@ -67,13 +68,13 @@ document.querySelector("#app").innerHTML = `
         ${sectionEyebrow("Product Categories")}
         <h2 class="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl">${categories.heading}</h2>
       </div>
-      <a href="/products/" class="text-sm font-bold text-moss">Browse all products</a>
+      <a href="${withBase("/products/")}" class="text-sm font-bold text-moss">Browse all products</a>
     </div>
     <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       ${categories.items
         .map(
           (category) => `
-            <a href="/products/?category=${encodeURIComponent(category)}" class="group rounded-[28px] border border-black/8 bg-white/82 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+            <a href="${withBase(`/products/?category=${encodeURIComponent(category)}`)}" class="group rounded-[28px] border border-black/8 bg-white/82 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
               ${productImageCard(category, category === "Packaging Supplies" ? "Packaging" : "Food products")}
               <div class="px-1 pb-2 pt-5">
                 <h3 class="font-display text-2xl font-bold">${category}</h3>
