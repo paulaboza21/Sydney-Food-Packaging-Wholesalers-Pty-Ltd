@@ -1,4 +1,4 @@
-import { contactPageContent } from "../content.js";
+import { businessDetails, contactPageContent } from "../content.js";
 import {
   buttonPrimary,
   buttonSecondary,
@@ -22,15 +22,15 @@ document.querySelector("#app").innerHTML = `
       <div class="mt-8 grid gap-4 sm:grid-cols-3">
         <div class="rounded-[24px] border border-black/8 bg-white/80 px-5 py-5">
           <div class="text-xs font-bold uppercase tracking-[0.22em] text-moss">Phone</div>
-          <div class="mt-2 text-sm font-semibold text-black/70">1300 000 000</div>
+          <div class="mt-2 text-sm font-semibold text-black/70">${businessDetails.phone}</div>
         </div>
         <div class="rounded-[24px] border border-black/8 bg-white/80 px-5 py-5">
           <div class="text-xs font-bold uppercase tracking-[0.22em] text-moss">Email</div>
-          <div class="mt-2 text-sm font-semibold text-black/70">sales@example.com</div>
+          <div class="mt-2 text-sm font-semibold text-black/70">${businessDetails.email}</div>
         </div>
         <div class="rounded-[24px] border border-black/8 bg-white/80 px-5 py-5">
           <div class="text-xs font-bold uppercase tracking-[0.22em] text-moss">Warehouse</div>
-          <div class="mt-2 text-sm font-semibold text-black/70">Address placeholder</div>
+          <div class="mt-2 text-sm font-semibold text-black/70">${businessDetails.address}</div>
         </div>
       </div>
     </div>

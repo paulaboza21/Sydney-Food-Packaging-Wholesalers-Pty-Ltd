@@ -91,6 +91,19 @@ export const homepageContent = {
   }
 };
 
+export const businessDetails = {
+  companyName: "Sydney Food & Packaging Wholesalers Pty Ltd",
+  shortName: "Sydney Food & Packaging",
+  phone: "1300 000 000",
+  email: "sales@example.com",
+  address: "Warehouse address placeholder, Sydney NSW",
+  serviceArea: "Greater Sydney",
+  quoteEmail: "sales@example.com",
+  quoteFormEndpoint: "",
+  quoteSuccessMessage:
+    "Thanks, your quote request is ready to send. Our team will review your requirements and respond with pricing and availability."
+};
+
 export const quotePageContent = {
   heading: "Request a Quote",
   subheading:

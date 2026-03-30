@@ -11,6 +11,7 @@ Premium static B2B website concept for Sydney Food & Packaging Wholesalers Pty L
 - Contact page
 - Shared branding and reusable UI utilities
 - SVG logo asset based on the provided mark
+- GitHub Pages deployment workflow
 
 ## Project Structure
 
@@ -18,7 +19,7 @@ Premium static B2B website concept for Sydney Food & Packaging Wholesalers Pty L
 
 `home.js` homepage rendering
 
-`content.js` shared marketing content and product data
+`content.js` shared marketing content, product data, and business settings
 
 `ui.js` shared header, footer, buttons, and reusable UI snippets
 
@@ -31,6 +32,8 @@ Premium static B2B website concept for Sydney Food & Packaging Wholesalers Pty L
 `contact/` contact page
 
 `assets/` brand assets
+
+`.github/workflows/` deployment automation
 
 ## Local Preview
 
@@ -48,11 +51,13 @@ Then open the local URL shown in the terminal.
 
 ### GitHub Pages
 
+This repo now includes a GitHub Actions workflow at `.github/workflows/deploy-pages.yml`.
+
 1. Open the repository settings.
 2. Go to `Pages`.
-3. Under `Build and deployment`, choose `Deploy from a branch`.
-4. Select the `main` branch and the `/ (root)` folder.
-5. Save and wait for GitHub Pages to publish the site.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+4. Push to `main` or rerun the workflow manually from the `Actions` tab.
+5. GitHub Pages will publish the site once the workflow succeeds.
 
 ### Netlify
 
@@ -68,8 +73,21 @@ Then open the local URL shown in the terminal.
 3. Leave the build settings empty if prompted.
 4. Deploy.
 
-## Notes
+## Lead Form Setup
 
-- The logo is stored as a reusable SVG in `assets/logo.svg`.
-- Contact details are currently placeholders and should be replaced before handoff.
-- The quote form is a front-end UI only and is not yet connected to email or CRM submission.
+The quote form supports two modes from `businessDetails` in `content.js`:
+
+- `quoteFormEndpoint`: if set, the form POSTs JSON to that endpoint
+- `quoteEmail`: if no endpoint is set, the form falls back to opening the user's email app with the quote details prefilled
+
+This makes the site usable immediately on GitHub Pages, while still allowing a real API endpoint later.
+
+## Final Handoff Checklist
+
+Before client handoff, replace these placeholders in `content.js`:
+
+- `phone`
+- `email`
+- `address`
+- `quoteEmail`
+- `quoteFormEndpoint` if you want direct web submissions instead of email fallback

@@ -1,3 +1,5 @@
+import { businessDetails } from "./content.js";
+
 const iconMap = {
   Supply: "SP",
   Truck: "DL",
@@ -20,11 +22,11 @@ export const renderSiteChrome = () => {
     <div class="glass-panel flex flex-col gap-4 rounded-[28px] border border-line px-5 py-4 shadow-soft md:flex-row md:items-center md:justify-between">
       <a href="/" class="flex items-center gap-4">
         <div class="flex items-center justify-center rounded-2xl bg-white/70 px-2 py-1">
-          <img src="/assets/logo.svg" alt="Sydney Food & Packaging Wholesalers logo" class="h-12 w-16 object-contain" />
+          <img src="/assets/logo.svg" alt="${businessDetails.companyName} logo" class="h-12 w-16 object-contain" />
         </div>
         <div>
-          <div class="font-display text-base font-bold">Sydney Food & Packaging</div>
-          <div class="text-sm text-black/60">Foodservice wholesale supply across Greater Sydney</div>
+          <div class="font-display text-base font-bold">${businessDetails.shortName}</div>
+          <div class="text-sm text-black/60">Foodservice wholesale supply across ${businessDetails.serviceArea}</div>
         </div>
       </a>
       <nav class="flex flex-wrap gap-5 text-sm font-semibold text-black/70">
@@ -36,7 +38,7 @@ export const renderSiteChrome = () => {
   footer.innerHTML = `
     <div class="glass-panel flex flex-col gap-6 rounded-[28px] border border-line px-6 py-8 shadow-soft lg:flex-row lg:items-start lg:justify-between">
       <div class="max-w-xl">
-        <h3 class="font-display text-xl font-bold">Sydney Food & Packaging Wholesalers</h3>
+        <h3 class="font-display text-xl font-bold">${businessDetails.companyName}</h3>
         <p class="mt-3 text-sm leading-7 text-black/65">
           Wholesale food products, packaging, cleaning essentials, and dependable delivery support for busy Sydney venues.
         </p>
@@ -54,9 +56,9 @@ export const renderSiteChrome = () => {
         <div>
           <h4 class="font-display text-sm font-bold uppercase tracking-[0.22em] text-black/55">Contact Info</h4>
           <div class="mt-3 grid gap-2 text-sm text-black/70">
-            <span>1300 000 000</span>
-            <span>sales@example.com</span>
-            <span>Warehouse address placeholder</span>
+            <span>${businessDetails.phone}</span>
+            <span>${businessDetails.email}</span>
+            <span>${businessDetails.address}</span>
           </div>
         </div>
       </div>
